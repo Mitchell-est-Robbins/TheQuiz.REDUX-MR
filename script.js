@@ -5,6 +5,7 @@ const timer= document.querySelector("#timer")
 const startCard= document.querySelector('#startCard')
 const startBtn= document.querySelector("#startBtn")
 const restartBtn= document.querySelector("#restartBtn")
+const score= document.querySelector("#score")
 
 const questCard= document.querySelector('#questCard')
 const qTitle= document.querySelector('#qTitle')
@@ -71,7 +72,7 @@ const questionsArr =[
     {   
         
         question:" With what do you initiate an ambush?",
-        choice: ["The most casualty producing system", "A bomb", "An open bolt system", "A mean word!" ],
+        choice: ["The most casualty producing system", "what!?!", "An open bolt system", "A mean word!" ],
         answer: "The most casualty producing system",
     },
     {   
@@ -80,10 +81,64 @@ const questionsArr =[
         choice: ["STRONG", "what!?!", "No!", "Who?!" ],
         answer: "STRONG",
     },
+    {   
+        
+        question:"What is the 29th Law of Power",
+        choice: ["Use absence to increase respect", "what!?!", "Plan All the Way to the end", "Never Appear too perfect" ],
+        answer: "Plan All the Way to the end",
+    },
+    {   
+        
+        question:"The Tower is what Card #",
+        choice: ["7", "what!?!", "12", "16" ],
+        answer: "16",
+    },
+    {   
+        
+        question:"4",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
+    {   
+        
+        question:"5",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
+    {   
+        
+        question:"6",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
+    {   
+        
+        question:"7",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
+    {   
+        
+        question:"8",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
+    {   
+        
+        question:"9",
+        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
+        answer: "STRONG",
+    },
 ]
 
 
 function endQuiz() {
+    questCard.setAttribute("class", "hide"); //hide questions
+    startBtn.setAttribute("class", "hide") //hide cheeky start button
+    
+    startCard.removeAttribute ("class", "hide")
+    restartBtn.removeAttribute ("class", "hide"); //show restart and score
+    score.removeAttribute("class", "hide");
     // WHEN the game is over
     // hide start and go again...
     // restart unhide...
