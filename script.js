@@ -1,25 +1,46 @@
 // console.log("winning")
 
-const timer= document.querySelector("#timer")
 
-const startCard= document.querySelector('#startCard')
-const startBtn= document.querySelector("#startBtn")
-const restartBtn= document.querySelector("#restartBtn")
-const score= document.querySelector("#score")
+const startCard= document.querySelector('#startCard');
+const startBtn= document.querySelector("#startBtn");
+const restartBtn= document.querySelector("#restartBtn");
+const leaderboard= document.querySelector("#leaderboard")
 
-const questCard= document.querySelector('#questCard')
-const qTitle= document.querySelector('#qTitle')
-const qAnswers= document.querySelector('#qAnswers')
+const score= document.querySelector("#scores");
+let scoreNum= 0;
 
-qArrIterator= 0 //
+const questCard= document.querySelector('#questCard');
+const qTitle= document.querySelector('#qTitle');
+const qAnswers= document.querySelector('#qAnswers');
 
+let qArrIterator= 0 // start at index position 0
+
+const timer= document.querySelector("#timer");
+let clock;
+let theTime= 100
+
+
+// ============= start =========================================
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
 function quizstart() {
     startCard.setAttribute("class", "hide"); //hide start
     questCard.removeAttribute ("class", "hide"); //show the questions
+    
+    let theTime= 100 
+    clock= setInterval(countDown, 1000) //thanks unit 4 inclass 10 for time stuff
+    timer.textContent = theTime
+    
     presentQuestion()
 }
+// ============= time stuff =========================================
+
+function countDown() {
+    theTime --;
+    timer.textContent=theTime;
+    if (theTime < 0 ){endQuiz()}
+}
+// ============= making questions show =========================================
 
 function presentQuestion(){
     liveQuestion= questionsArr[qArrIterator]; 
@@ -30,8 +51,7 @@ function presentQuestion(){
 
     liveQuestion.choice.forEach((element, i)=>  {
         let dynaChoiceBtn= document.createElement('button');
-        //  dynamic choice button
-
+    // ----- dynamic choice button-------
         // dynaChoiceBtn.setAttribute ("class", "" )//for later with styling
         dynaChoiceBtn.setAttribute("value", element);
         dynaChoiceBtn.textContent= i+1+ " : " +element;
@@ -41,45 +61,45 @@ function presentQuestion(){
     });
 
 }
+// ============= making the questions work =========================================
 
 function questionlogic(){
-    qArrIterator++;
-    // console.log(qArrIterator)
-    // console.log(questionsArr.length)
-    if (qArrIterator === questionsArr.length){endQuiz()} 
-    else {presentQuestion()}
-
-     
-    // WHEN I answer a question
-    // THEN I am presented with another question
-    // starts the quiz
-    // start the timer
-    //  click on the answer-------------------------
     
     // WHEN I answer a question incorrectly
     // THEN time is subtracted from the clock
-    // something to handle the time-----------------
+    if (this.value !== questionsArr[qArrIterator].answer) {
+        console.log(this)
+        theTime -= 10;
+        }else{ scoreNum ++}
+    if (theTime < 0) {theTime = 0}
+    
+    console.log(scoreNum)
+    score.textContent=scoreNum;
+
     
     // WHEN all questions are answered or the timer reaches 0
     // THEN the game is over
-    // end of the quiz??----------------------------
+    qArrIterator++;
+    if (qArrIterator === questionsArr.length){endQuiz()} 
+    else {presentQuestion()}
     
 }
 
-// create an array of questions-----------------
+// ============= the questions =========================================
 // -------------some questions from my earlier attempt 04BootCampHomeworkMR 
+
 const questionsArr =[
-    {   
-        
-        question:" With what do you initiate an ambush?",
-        choice: ["The most casualty producing system", "what!?!", "An open bolt system", "A mean word!" ],
-        answer: "The most casualty producing system",
-    },
     {   
         
         question:"Apes Together...?",
         choice: ["STRONG", "what!?!", "No!", "Who?!" ],
         answer: "STRONG",
+    },
+    {   
+        
+        question:" With what do you initiate an ambush?",
+        choice: ["The most casualty producing system", "what!?!", "An open bolt system", "A mean word!" ],
+        answer: "The most casualty producing system",
     },
     {   
         
@@ -95,15 +115,15 @@ const questionsArr =[
     },
     {   
         
-        question:"4",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"People of Byzantium called themselves",
+        choice: ["Turkish", "Macadonian", "Roman", "Who?!" ],
+        answer: "Roman",
     },
     {   
         
-        question:"5",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"Stocks go...",
+        choice: ["UP", "Sir, you're drunk", "This is a Walgreens", "Please leave" ],
+        answer: "UP",
     },
     {   
         
@@ -131,26 +151,31 @@ const questionsArr =[
     },
 ]
 
+// ============= how it ends =========================================
 
 function endQuiz() {
+    // WHEN the game is over
+    clearInterval(clock)
     questCard.setAttribute("class", "hide"); //hide questions
     startBtn.setAttribute("class", "hide") //hide cheeky start button
     
+
     startCard.removeAttribute ("class", "hide")
     restartBtn.removeAttribute ("class", "hide"); //show restart and score
-    score.removeAttribute("class", "hide");
-    // WHEN the game is over
-    // hide start and go again...
-    // restart unhide...
-    // or see scores------------
-    // unhide score------------------
-
+    leaderboard.removeAttribute("class", "hide");
+    qArrIterator= 0
+    
+    
 }
 
 // THEN I can save my initials and my score
 // score stuff, how to enter via local----------
 
 
+// ============= how it starts  =========================================
 
 startBtn.addEventListener('click', quizstart)
-restartBtn.addEventListener('click', quizstart)
+restartBtn.addEventListener('click', restartquiz)
+function restartquiz(){
+    window.location.reload()
+}
