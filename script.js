@@ -21,10 +21,10 @@ function quizstart() {
 }
 
 function presentQuestion(){
+    liveQuestion= questionsArr[qArrIterator]; 
     qTitle.textContent=""
     qAnswers.textContent=""
     
-    liveQuestion= questionsArr[qArrIterator]; 
     qTitle.textContent = liveQuestion.question
 
     liveQuestion.choice.forEach((element, i)=>  {
@@ -32,53 +32,65 @@ function presentQuestion(){
         //  dynamic choice button
 
         // dynaChoiceBtn.setAttribute ("class", "" )//for later with styling
+        dynaChoiceBtn.setAttribute("value", element);
         dynaChoiceBtn.textContent= i+1+ " : " +element;
-        qAnswers.appendChild(dynaChoiceBtn)
+        qAnswers.appendChild(dynaChoiceBtn);
+        dynaChoiceBtn.onclick = questionlogic;
         
     });
 
-  
- 
-
 }
+
+function questionlogic(){
+    qArrIterator++;
+    // console.log(qArrIterator)
+    // console.log(questionsArr.length)
+    if (qArrIterator === questionsArr.length){endQuiz()} 
+    else {presentQuestion()}
+
+     
     // WHEN I answer a question
     // THEN I am presented with another question
     // starts the quiz
     // start the timer
+    //  click on the answer-------------------------
+    
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
+    // something to handle the time-----------------
+    
+    // WHEN all questions are answered or the timer reaches 0
+    // THEN the game is over
+    // end of the quiz??----------------------------
+    
+}
 
 // create an array of questions-----------------
 // -------------some questions from my earlier attempt 04BootCampHomeworkMR 
 const questionsArr =[
     {   
         
+        question:" With what do you initiate an ambush?",
+        choice: ["The most casualty producing system", "A bomb", "An open bolt system", "A mean word!" ],
+        answer: "The most casualty producing system",
+    },
+    {   
+        
         question:"Apes Together...?",
         choice: ["STRONG", "what!?!", "No!", "Who?!" ],
         answer: "STRONG",
     },
-    {   
-        
-        question:" With what do you initiate an ambush?",
-        choice: ["The most casualty producing system", "A bomb", "An open bolt system", "A mean word!" ],
-        answer: "The most casualty producing system",
-    }
 ]
 
 
-//  click on the answer-------------------------
+function endQuiz() {
+    // WHEN the game is over
+    // hide start and go again...
+    // restart unhide...
+    // or see scores------------
+    // unhide score------------------
 
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// something to handle the time-----------------
-
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// end of the quiz??----------------------------
-
-// WHEN the game is over
-// hide start and go again...
-// restart unhide...
-// or see scores------------
-// unhide score------------------
+}
 
 // THEN I can save my initials and my score
 // score stuff, how to enter via local----------
