@@ -52,7 +52,7 @@ function presentQuestion(){
     liveQuestion.choice.forEach((element, i)=>  {
         let dynaChoiceBtn= document.createElement('button');
     // ----- dynamic choice button-------
-        // dynaChoiceBtn.setAttribute ("class", "" )//for later with styling
+        dynaChoiceBtn.setAttribute ("class", "btn btnC col" )//for later with styling
         dynaChoiceBtn.setAttribute("value", element);
         dynaChoiceBtn.textContent= i+1+ " : " +element;
         qAnswers.appendChild(dynaChoiceBtn);
@@ -97,21 +97,21 @@ const questionsArr =[
     },
     {   
         
-        question:" With what do you initiate an ambush?",
-        choice: ["The most casualty producing system", "what!?!", "An open bolt system", "A mean word!" ],
-        answer: "The most casualty producing system",
-    },
-    {   
-        
         question:"What is the 29th Law of Power",
         choice: ["Use absence to increase respect", "what!?!", "Plan All the Way to the end", "Never Appear too perfect" ],
         answer: "Plan All the Way to the end",
     },
     {   
         
-        question:"The Tower is what Card #",
+        question:"The Tower is what Tarot Card #",
         choice: ["7", "what!?!", "12", "16" ],
         answer: "16",
+    },
+    {   
+        
+        question:" With what do you initiate an ambush?",
+        choice: ["The most casualty producing system", "what!?!", "With an open bolt weapon", "By yelling a very mean word!" ],
+        answer: "The most casualty producing system",
     },
     {   
         
@@ -127,27 +127,27 @@ const questionsArr =[
     },
     {   
         
-        question:"6",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"When deploying Lethal Autonomous Weapon systems, you should be... ",
+        choice: ["Partying", "Outside of their effective range", "I have no opinion because I am uninformed", "In the loop" ],
+        answer: "Outside of their effective range",
     },
     {   
         
-        question:"7",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"When should you buy crypto?",
+        choice: ["Today", "Tomorrow", "Yesterday", "Never" ],
+        answer: "Yesterday",
     },
     {   
         
-        question:"8",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"Attila the Hun was also called",
+        choice: ["Old One Eye", "The Scourge of God", "Stalin", "Who?!" ],
+        answer: "The Scourge of God",
     },
     {   
         
-        question:"9",
-        choice: ["STRONG", "what!?!", "No!", "Who?!" ],
-        answer: "STRONG",
+        question:"Maccas = ",
+        choice: ["Apple products", "what!?!", "McDonalds", "Who?!" ],
+        answer: "McDonalds",
     },
 ]
 
@@ -163,6 +163,7 @@ function endQuiz() {
     startCard.removeAttribute ("class", "hide")
     restartBtn.removeAttribute ("class", "hide"); //show restart and score
     leaderboard.removeAttribute("class", "hide");
+    restartBtn.setAttribute ("class", "btn btnC" )
     qArrIterator= 0
     
     

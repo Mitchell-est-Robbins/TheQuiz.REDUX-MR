@@ -5,36 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE QUIZ</title>
+    <title>QUIZ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <!-- ============================================================== -->
 <body>
-    <nav>
-        <div >
-            <h3>SCORE</h3>
-            <p id="scores"></p>
+    <nav class= "card text-center lg">
+        <div class= "card-body">
+            <h3 class= "card-title" >SCORE</h3>
+            <p  class= "card-text" id="scores"></p>
         </div>
-        <div>
-            <h3>TIME</h3>
-            <p id="timer"></p>
+        <div class= "card-body">
+            <h4 class= "card-title">TIME</h4>
+            <p class= "card-text" id="timer"></p>
         </div>
     </nav>
 
-    <main id="startCard">
-        General Knowledge Quiz A1503
-        <button id="startBtn">Start Quiz</button>
-        <button class="hide" id="restartBtn">Restart Quiz?</button>
+    <main class='card w-90' id="startCard">
+        <h1 class= "card-body text-center">Esoteric Knowledge Quiz </h1> 
+        <button class="btn btnC " id="startBtn">Start Quiz</button>
+        <button class="hide " id="restartBtn">Restart Quiz?</button>
         <section class="hide" id="leaderboard" >
-            end screen stuff
+            leaderboard...
         </section>
     </main>
 
-    <main class="hide" id="questCard">
-        <div id="qTitle">x</div>
+    <main class="hide card w-90" id="questCard">
+        <div class="card-body text-center">
+        <div class="card-title" id="qTitle">x</div>
         <div id="qAnswers">x</div>
+        </div>
     </main>
 
 
