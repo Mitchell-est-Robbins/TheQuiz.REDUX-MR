@@ -139,7 +139,7 @@ const questionsArr =[
     },
     {   
         
-        question:"A man weighting 8 stone, and 4ish cubit tall is?",
+        question:"A man weighing 8 stone, and 4ish cubit tall is?",
         choice: ["healthy", "underweight", "overweight", "stone?!?!" ],
         answer: "underweight",
     },
