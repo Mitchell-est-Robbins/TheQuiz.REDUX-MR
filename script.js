@@ -52,7 +52,7 @@ function presentQuestion(){
     liveQuestion.choice.forEach((element, i)=>  {
         let dynaChoiceBtn= document.createElement('button');
     // ----- dynamic choice button-------
-        dynaChoiceBtn.setAttribute ("class", "btn btnC col" )//for later with styling
+        dynaChoiceBtn.setAttribute ("class", "btn btnC col" )
         dynaChoiceBtn.setAttribute("value", element);
         dynaChoiceBtn.textContent= i+1+ " : " +element;
         qAnswers.appendChild(dynaChoiceBtn);
@@ -139,9 +139,9 @@ const questionsArr =[
     },
     {   
         
-        question:"Attila the Hun was also called",
-        choice: ["Old One Eye", "The Scourge of God", "Stalin", "Who?!" ],
-        answer: "The Scourge of God",
+        question:"A man weighting 8 stone, and 4ish cubit tall is?",
+        choice: ["healthy", "underweight", "overweight", "stone?!?!" ],
+        answer: "underweight",
     },
     {   
         
