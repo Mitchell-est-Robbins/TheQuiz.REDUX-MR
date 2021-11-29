@@ -22,11 +22,11 @@ icebox: local storage and leaderboards.
 --------
 
 ## **screenshots**
-![pictures of landingpage](refs/landing.jpg)
+![pictures of landingpage](REFs/landing.jpg)
 
 -----------
 
-![pictures of landingpage](refs/questions.jpg)
+![pictures of quetions](REFs/questions.jpg)
 
 
 ---------
